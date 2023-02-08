@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Text to Different Font Converter</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: lightgray;
+      }
+      .container {
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 50%;
+        min-width: 300px;
+        border: 2px solid gray;
+      }
+      textarea, select, button, div {
+        margin: 10px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Text to Different Font Converter</h1>
+      <p>Enter some text:</p>
+      <textarea id="input"></textarea>
+      <br><br>
+      <p>Select a font:</p>
+      <select id="font-select">
+        <option value="Arial">Arial</option>
+        <option value="Courier">Courier</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+      </select>
+      <br><br>
+      <button onclick="convert()">Convert</button>
+      <br><br>
+      <p>Converted text:</p>
+      <div id="output" style="font-family: Arial;"></div>
+    </div>
+    
+    <script>
+      function convert() {
+        const input = document.getElementById("input").value;
+        const fontSelect = document.getElementById("font-select");
+        const font = fontSelect.options[fontSelect.selectedIndex].value;
+        
+        document.getElementById("output").innerHTML = input;
+        document.getElementById("output").style.fontFamily = font;
+      }
+    </script>
+  </body>
+</html>
